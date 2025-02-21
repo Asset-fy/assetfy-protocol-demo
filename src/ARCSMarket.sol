@@ -268,6 +268,11 @@ contract AssetfyMarket {
         emit FundsReleased(_projectId, amount);
     }
 
+    function getProject(uint256 projectId) external view returns(Project memory) {
+        return projects[projectId];
+    }
+    
+
     function _swapTokenForUSDC(address tokenIn, uint256 amountIn) internal returns (uint256) {
         require(amountIn > 0, "No tokens to swap");
         require(tokenIn != address(0), "Invalid token");
